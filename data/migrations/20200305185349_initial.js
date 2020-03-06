@@ -7,6 +7,7 @@ exports.up = async function(knex) {
     table.increments("id");
     table.string("name").notNull();
     table.integer("quantity").notNull();
+    table.onDelete("SET NULL");
   });
   await knex.schema.createTable("recipe_ingredients", table => {
     table
